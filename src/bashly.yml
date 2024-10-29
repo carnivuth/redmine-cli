@@ -3,24 +3,47 @@ help: interact with redmine instances from command line
 version: 0.1.0
 
 environment_variables:
-- name: redmine_password
+- name: REDMINE_PASSWORD
+  required: false
   help: personal redmine password
 
-- name: redmine_username
+- name: REDMINE_USERNAME
+  required: false
   help: personal redmine username
 
-- name: redmine_address
+- name: REDMINE_ADDRESS
+  required: true
   help: redmine instance address
 
 commands:
 - name: ticket
   alias: t
   help:  manage redmine tickets
-  args:
-  - name: operation
-    required: true
-    help: operation to perform values are get delete update insert
+  commands:
+  - name: create
+    alias: c
+    help: create a ticket
+    args:
+
+    - name: username
+      required: false
+    - name: subject
+      required: false
+      help: subject of the ticket
+
+    - name: description
+      required: false
+      help: description of the ticket
+
+  - name: get
+    alias: g
+    help: get tickets
+    args:
+    - name: id
+      required: false
+      help: id of the ticket to get, default get all tickets
+
 
 
   examples:
-  - redmine-cli ticket create "name"
+  - redmine-cli ticket get [id]
