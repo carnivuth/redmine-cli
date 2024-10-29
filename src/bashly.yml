@@ -1,0 +1,26 @@
+name: redmine-cli
+help: interact with redmine instances from command line
+version: 0.1.0
+
+environment_variables:
+- name: redmine_password
+  help: personal redmine password
+
+- name: redmine_username
+  help: personal redmine username
+
+- name: redmine_address
+  help: redmine instance address
+
+commands:
+- name: ticket
+  alias: t
+  help:  manage redmine tickets
+  args:
+  - name: operation
+    required: true
+    help: operation to perform values are get delete update insert
+
+
+  examples:
+  - redmine-cli ticket create "name"
