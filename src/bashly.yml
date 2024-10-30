@@ -4,11 +4,11 @@ version: 0.1.0
 
 environment_variables:
 - name: REDMINE_PASSWORD
-  required: false
+  required: true
   help: personal redmine password
 
 - name: REDMINE_USERNAME
-  required: false
+  required: true
   help: personal redmine username
 
 - name: REDMINE_ADDRESS
